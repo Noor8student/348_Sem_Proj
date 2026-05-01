@@ -14,5 +14,5 @@ All AI-generated suggestions were:
 I confirm that:
 
 - I understand all parts of the code submitted in this project
-- I can explain the design decisions, database schema, queries, indexing choices, and security mechanisms (such as SQL injection protection)
+- I can explain the design decisions, database schema, queries, indexing choices, and security mechanisms
 - AI tools were used only as a support tool and not as a substitute for my own understanding or work
