@@ -1,9 +1,15 @@
 # AI Usage
 AI was used (primarily ChatGPT) to assist with:
 
-- Assisting in writing and refining SQL queries for filtering, aggregation, and database initialization
-- Assisting in debugging issues related to Flask routing, templates, and SQLite errors
+- Writing and refining SQL queries for filtering, aggregation, and database initialization
+- Debugging issues related to Flask routing, templates, and SQLite errors
 - Suggesting improvements to code organization and user interface structure
+
+All AI-generated suggestions were:
+
+- Reviewed and understood before being applied
+- Tested locally by running the application and verifying functionality
+- Modified when necessary to ensure correctness and alignment with project requirements
 
 I confirm that:
 
