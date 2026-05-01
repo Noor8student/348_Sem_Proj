@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Edit Player</h1>
+
+<form method="POST">
+  <input type="text" name="player_name" value="{{ player.player_name }}" required>
+  <input type="text" name="team_name" value="{{ player.team_name }}" required>
+
+  <input type="number" step="0.1" name="ppg" value="{{ player.ppg }}" required>
+  <input type="number" step="0.1" name="rpg" value="{{ player.rpg }}" required>
+  <input type="number" step="0.1" name="apg" value="{{ player.apg }}" required>
+  <input type="number" step="0.1" name="bpg" value="{{ player.bpg }}" required>
+  <input type="number" step="0.1" name="spg" value="{{ player.spg }}" required>
+  <input type="number" step="0.1" name="fg_pct" value="{{ player.fg_pct }}" required>
+  <input type="number" step="0.1" name="three_pt_pct" value="{{ player.three_pt_pct }}" required>
+  <input type="number" step="0.1" name="ft_pct" value="{{ player.ft_pct }}" required>
+
+  <button type="submit">Update Player</button>
+</form>
+{% endblock %}

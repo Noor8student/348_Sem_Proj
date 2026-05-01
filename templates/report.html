@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Filter Players by Stats</h1>
+
+<form method="GET" action="{{ url_for('report') }}">
+  <select name="team_name">
+    <option value="">All Teams</option>
+    {% for team in teams %}
+      <option value="{{ team.team_name }}" {% if selected_team == team.team_name %}selected{% endif %}>
+        {{ team.team_name }}
+      </option>
+    {% endfor %}
+  </select>
+
+  <input type="number" step="0.1" name="min_ppg" placeholder="Min PPG" value="{{ min_ppg }}">
+  <input type="number" step="0.1" name="max_ppg" placeholder="Max PPG" value="{{ max_ppg }}">
+  <input type="number" step="0.1" name="min_rpg" placeholder="Min RPG" value="{{ min_rpg }}">
+  <input type="number" step="0.1" name="max_rpg" placeholder="Max RPG" value="{{ max_rpg }}">
+  <input type="number" step="0.1" name="min_apg" placeholder="Min APG" value="{{ min_apg }}">
+  <input type="number" step="0.1" name="max_apg" placeholder="Max APG" value="{{ max_apg }}">
+  <input type="number" step="0.1" name="min_bpg" placeholder="Min BPG" value="{{ min_bpg }}">
+  <input type="number" step="0.1" name="min_spg" placeholder="Min SPG" value="{{ min_spg }}">
+  <input type="number" step="0.1" name="min_fg_pct" placeholder="Min FG%" value="{{ min_fg_pct }}">
+  <input type="number" step="0.1" name="min_three_pt_pct" placeholder="Min 3PT%" value="{{ min_three_pt_pct }}">
+  <input type="number" step="0.1" name="min_ft_pct" placeholder="Min FT%" value="{{ min_ft_pct }}">
+
+  <button type="submit">Generate Report</button>
+</form>
+
+<div class="summary-box">
+  <h2>Report Summary</h2>
+  <p>Total Players: {{ summary.total_players or 0 }}</p>
+  <p>Average PPG: {{ summary.avg_ppg or 0 }}</p>
+  <p>Average RPG: {{ summary.avg_rpg or 0 }}</p>
+  <p>Average APG: {{ summary.avg_apg or 0 }}</p>
+  <p>Average BPG: {{ summary.avg_bpg or 0 }}</p>
+  <p>Average SPG: {{ summary.avg_spg or 0 }}</p>
+</div>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Team</th>
+    <th>PPG</th>
+    <th>RPG</th>
+    <th>APG</th>
+    <th>BPG</th>
+    <th>SPG</th>
+    <th>FG%</th>
+    <th>3PT%</th>
+    <th>FT%</th>
+  </tr>
+
+  {% for player in players %}
+  <tr>
+    <td>{{ player.player_name }}</td>
+    <td>{{ player.team_name }}</td>
+    <td>{{ player.ppg }}</td>
+    <td>{{ player.rpg }}</td>
+    <td>{{ player.apg }}</td>
+    <td>{{ player.bpg }}</td>
+    <td>{{ player.spg }}</td>
+    <td>{{ player.fg_pct }}</td>
+    <td>{{ player.three_pt_pct }}</td>
+    <td>{{ player.ft_pct }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
