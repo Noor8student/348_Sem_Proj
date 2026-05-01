@@ -3,7 +3,10 @@ import sqlite3
 import os
 
 app = Flask(__name__)
-DATABASE = "nba.db"
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATABASE = os.path.join(BASE_DIR, "nba.db")
+SCHEMA = os.path.join(BASE_DIR, "schema.sql")
 
 
 def get_db():
